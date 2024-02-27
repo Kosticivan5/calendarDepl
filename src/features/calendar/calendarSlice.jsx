@@ -4,9 +4,9 @@ import axios from "axios";
 import { getMonth, getNewData } from "../../utils";
 
 // const url = "http://localhost:3000/events";
-// const url =
-//   "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
-const url = "/.netlify/functions/fetchData";
+const url =
+  "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
+// const url = "/.netlify/functions/fetchData";
 
 export const getCalendarEvents = createAsyncThunk(
   "calendar/getCalendarEvents",
