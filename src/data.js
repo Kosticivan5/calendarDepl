@@ -3987,9 +3987,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-30T10:00:00+00:00",
+    start_date: "2024-02-28T10:00:00+00:00",
 
-    finish_date: "2024-01-30T12:00:00+00:00",
+    finish_date: "2024-02-28T12:00:00+00:00",
 
     organizational_form: "internal",
 
@@ -4071,9 +4071,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-16T10:00:00+00:00",
+    start_date: "2024-03-06T10:00:00+00:00",
 
-    finish_date: "2024-01-16T12:00:00+00:00",
+    finish_date: "2024-03-06T12:00:00+00:00",
 
     organizational_form: "internal",
 
@@ -4135,6 +4135,7 @@ export const events = [
     lead_friday: 0,
     digital_lit: 0,
     finance_lit: 0,
+    direction: "finance_lit",
 
     is_devops: 0,
 
@@ -4221,6 +4222,7 @@ export const events = [
     lead_friday: 0,
     digital_lit: 0,
     finance_lit: 0,
+    direction: "finance_lit",
 
     starting: 0,
 
@@ -4239,9 +4241,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-22T09:30:00+00:00",
+    start_date: "2024-03-22T09:30:00+00:00",
 
-    finish_date: "2024-01-22T11:00:00+00:00",
+    finish_date: "2024-03-22T11:00:00+00:00",
 
     organizational_form: "internal",
 
@@ -4259,7 +4261,7 @@ export const events = [
 
     max_pers: 236,
 
-    registred: 0,
+    registred: 1,
 
     in_wlist: 0,
   },
@@ -4304,6 +4306,7 @@ export const events = [
     lead_friday: 0,
     digital_lit: 0,
     finance_lit: 0,
+    direction: "learn_own",
 
     starting: 0,
 
@@ -4322,9 +4325,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-16T10:00:00+00:00",
+    start_date: "2024-03-16T10:00:00+00:00",
 
-    finish_date: "2024-01-16T13:00:00+00:00",
+    finish_date: "2024-03-16T13:00:00+00:00",
 
     organizational_form: "internal",
 
@@ -4385,6 +4388,7 @@ export const events = [
     lead_friday: 0,
     digital_lit: 0,
     finance_lit: 0,
+    direction: "finance_lit",
 
     is_devops: 0,
 
@@ -4405,9 +4409,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-29T09:30:00+00:00",
+    start_date: "2024-02-29T09:30:00+00:00",
 
-    finish_date: "2024-01-29T11:00:00+00:00",
+    finish_date: "2024-02-29T11:00:00+00:00",
 
     organizational_form: "internal",
 
@@ -4551,6 +4555,7 @@ export const events = [
     lead_friday: 0,
     digital_lit: 0,
     finance_lit: 0,
+    direction: "lead_academy",
 
     is_devops: 0,
 
@@ -4800,7 +4805,7 @@ export const events = [
     starting: 0,
     learn_own: 0,
     lead_academy: 0,
-    lead_friday: 0,
+    lead_friday: 1,
     digital_lit: 0,
     finance_lit: 0,
 
@@ -4819,9 +4824,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-19T08:50:00+00:00",
+    start_date: "2024-03-01T08:50:00+00:00",
 
-    finish_date: "2024-01-19T10:00:00+00:00",
+    finish_date: "2024-03-01T10:00:00+00:00",
 
     organizational_form: "external",
 
@@ -4884,7 +4889,7 @@ export const events = [
     starting: 0,
     learn_own: 0,
     lead_academy: 0,
-    lead_friday: 0,
+    lead_friday: 1,
     digital_lit: 0,
     finance_lit: 0,
 
@@ -4903,9 +4908,9 @@ export const events = [
 
     type: "webinar",
 
-    start_date: "2024-01-26T08:50:00+00:00",
+    start_date: "2024-03-15T08:50:00+00:00",
 
-    finish_date: "2024-01-26T10:00:00+00:00",
+    finish_date: "2024-03-15T10:00:00+00:00",
 
     organizational_form: "external",
 
@@ -8121,7 +8126,7 @@ export const events = [
 
     start_date: "2024-02-22T08:25:00+00:00",
 
-    finish_date: "2024-09-11T20:30:00+00:00",
+    finish_date: "2024-03-05T20:30:00+00:00",
 
     organizational_form: "internal",
 
