@@ -59,6 +59,7 @@ const calendarSlice = createSlice({
       })
       .addCase(getCalendarEvents.rejected, (state, action) => {
         state.isLoading = false;
+        console.log(action.error);
       });
   },
 });
