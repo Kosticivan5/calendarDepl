@@ -4002,7 +4002,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Гаджимурадова Мадина Муратбековна; brМихайлова Светлана Владимировна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -4086,7 +4086,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Гаджимурадова Мадина Муратбековна; brМихайлова Светлана Владимировна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -4339,7 +4339,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Первухина Ксения Александровна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -4507,7 +4507,7 @@ export const events = [
     is_passed: 1,
 
     company:
-      "Раскина Яна Андреевна; brЧириков Михаил Александрович; brЗайнуллина Альбина Ахмазяновна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -4590,7 +4590,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Сомова Елена Григорьевна; brМаркова Ольга Михайловна; brРязанова Елена Константиновна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -4672,7 +4672,7 @@ export const events = [
 
     is_passed: 1,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5005,7 +5005,7 @@ export const events = [
 
     is_passed: 1,
 
-    company: "Дынина Ольга Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5088,7 +5088,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дынина Ольга Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5171,7 +5171,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дынина Ольга Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5254,7 +5254,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дынина Ольга Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5336,7 +5336,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Харитонов Максим Игоревич",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5418,7 +5418,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Харитонов Максим Игоревич",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5500,7 +5500,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Харитонов Максим Игоревич",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5583,7 +5583,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Оришич Татьяна Александровна; brТуманова Анастасия Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5666,7 +5666,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Туманова Анастасия Сергеевна; brОришич Татьяна Александровна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5749,7 +5749,7 @@ export const events = [
 
     is_passed: 1,
 
-    company: "Раскина Яна Андреевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5832,7 +5832,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Чириков Михаил Александрович",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5914,7 +5914,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Герасименко Антон Юрьевич",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -5997,7 +5997,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Оришич Татьяна Александровна; brТуманова Анастасия Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6080,7 +6080,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Чириков Михаил Александрович",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6163,7 +6163,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Чириков Михаил Александрович; brПристромова Светлана Васильевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6245,7 +6245,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Раскина Яна Андреевна; brПристромова Светлана Васильевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6328,7 +6328,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Раскина Яна Андреевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6410,7 +6410,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Раскина Яна Андреевна; brПристромова Светлана Васильевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6493,7 +6493,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Вайда Ольга Викторовна; brТуманова Анастасия Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6577,7 +6577,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Зайнуллина Альбина Ахмазяновна; brПристромова Светлана Васильевна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6660,7 +6660,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Первухина Ксения Александровна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6744,7 +6744,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Зайнуллина Альбина Ахмазяновна; brЧириков Михаил Александрович; brПристромова Светлана Васильевна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6828,7 +6828,7 @@ export const events = [
     is_passed: 0,
 
     company:
-      "Вайда Ольга Викторовна; brРаскина Яна Андреевна; brЗайнуллина Альбина Ахмазяновна",
+      "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6910,7 +6910,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Туманова Анастасия Сергеевна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -6993,7 +6993,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Первухина Ксения Александровна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7076,7 +7076,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Первухина Ксения Александровна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7158,7 +7158,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Вайда Ольга Викторовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7240,7 +7240,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Вайда Ольга Викторовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7322,7 +7322,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Вайда Ольга Викторовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7405,7 +7405,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Зайнуллина Альбина Ахмазяновна; brЧириков Михаил Александрович",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7488,7 +7488,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Вайда Ольга Викторовна; brЗайнуллина Альбина Ахмазяновна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7570,7 +7570,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7652,7 +7652,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7734,7 +7734,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7816,7 +7816,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7898,7 +7898,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -7978,7 +7978,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -8058,7 +8058,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 
@@ -8138,7 +8138,7 @@ export const events = [
 
     is_passed: 0,
 
-    company: "Дозорова Виктория Эдуардовна",
+    company: "Петр Петрович",
 
     Mandatorys: "0",
 

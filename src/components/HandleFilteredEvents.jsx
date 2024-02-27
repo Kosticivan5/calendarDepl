@@ -62,7 +62,7 @@ const useHandleFilteredEvents = (
         const allConditionsMet = Object.entries(conditions).every(
           ([key, value]) => {
             if (key === "name") {
-              return evt[key].toLowerCase().startsWith(value.toLowerCase());
+              return evt[key].toLowerCase().includes(value.toLowerCase());
             }
             if (key === "for_type") {
               return evt[key].indexOf("boss]") !== -1;

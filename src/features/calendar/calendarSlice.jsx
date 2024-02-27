@@ -8,7 +8,8 @@ import { events } from "../../data";
 // const url =
 //   "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
 // const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
-const url = "https://api.jsonbin.io/v3/b/65ddc7ce1f5677401f3512af";
+// const url = "https://api.jsonbin.io/v3/b/65ddc7ce1f5677401f3512af";
+// const url = "https://calendar-eventss.netlify.app/functions/getData";
 
 // export const getCalendarEvents = createAsyncThunk(
 //   "calendar/getCalendarEvents",
