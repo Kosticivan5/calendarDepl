@@ -24,7 +24,7 @@ const EventInfo = () => {
   );
 
   useEffect(() => {
-    dispatch(displayedCities(ev.hub));
+    dispatch(displayedCities(ev?.hub));
   }, []);
 
   const urlAddress = window.location.href;
@@ -47,32 +47,31 @@ const EventInfo = () => {
           <div className="time-date-container">
             <div className="date">
               <CiCalendar />
-              {ev.old_start_date && ev.old_finish_date ? (
+              {ev?.old_start_date && ev?.old_finish_date ? (
                 <>
-                  <p>{dayjs(ev.old_start_date).format(" D MMMM")}</p>
-                  <p>{dayjs(ev.old_start_date).format("LT")}</p>
+                  <p>{dayjs(ev?.old_start_date).format(" D MMMM")}</p>
+                  <p>{dayjs(ev?.old_start_date).format("LT")}</p>
                 </>
               ) : (
                 <>
-                  <p>{dayjs(ev.start_date).format(" D MMMM")}</p>
-                  <p>{dayjs(ev.start_date).format("LT")}</p>
+                  <p>{dayjs(ev?.start_date).format(" D MMMM")}</p>
+                  <p>{dayjs(ev?.start_date).format("LT")}</p>
                 </>
               )}
-
               <p>мск</p>
             </div>
             <div className="time">
               <CiClock2 />
               <p>
-                {ev.old_start_date && ev.old_finish_date
+                {ev?.old_start_date && ev?.old_finish_date
                   ? dayjs
                       .duration(
-                        dayjs(ev.old_finish_date).diff(
-                          dayjs(ev.old_start_date).add(1, "day")
+                        dayjs(ev?.old_finish_date).diff(
+                          dayjs(ev?.old_start_date).add(1, "day")
                         )
                       )
                       .humanize()
-                  : formatDurationInRussian(ev.start_date, ev.finish_date)}
+                  : formatDurationInRussian(ev?.start_date, ev?.finish_date)}
               </p>
             </div>
           </div>
@@ -88,48 +87,48 @@ const EventInfo = () => {
         <section className="event-info-center">
           <div className="type">
             <PiMonitorPlayLight />
-            <p>{ev.class}</p>
+            <p>{ev?.class}</p>
           </div>
-          <h2 className="info-title">{ev.name}</h2>
+          <h2 className="info-title">{ev?.name}</h2>
 
           <div className="info-text">
             <p>Начало</p>
-            {ev.old_start_date ? (
+            {ev?.old_start_date ? (
               <p>
-                {dayjs(ev.old_start_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev.old_start_date).format("LT")} мск
+                {dayjs(ev?.old_start_date).format("DD.MM.YYYY")}{" "}
+                {dayjs(ev?.old_start_date).format("LT")} мск
               </p>
             ) : (
               <p>
-                {dayjs(ev.start_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev.start_date).format("LT")} мск
+                {dayjs(ev?.start_date).format("DD.MM.YYYY")}{" "}
+                {dayjs(ev?.start_date).format("LT")} мск
               </p>
             )}
             <p>Завершение</p>
-            {ev.old_finish_date ? (
+            {ev?.old_finish_date ? (
               <p>
-                {dayjs(ev.old_finish_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev.old_finish_date).format("LT")} мск
+                {dayjs(ev?.old_finish_date).format("DD.MM.YYYY")}{" "}
+                {dayjs(ev?.old_finish_date).format("LT")} мск
               </p>
             ) : (
               <p>
-                {dayjs(ev.finish_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev.finish_date).format("LT")} мск
+                {dayjs(ev?.finish_date).format("DD.MM.YYYY")}{" "}
+                {dayjs(ev?.finish_date).format("LT")} мск
               </p>
             )}
 
             <p>Регион</p>
             <p>{regions ? regions : ""}</p>
             <p>Преподаватель</p>
-            {<div dangerouslySetInnerHTML={{ __html: ev.company }} />}
+            {<div dangerouslySetInnerHTML={{ __html: ev?.company }} />}
             {/* <p>{ev.company} </p> */}
             <p>Направление</p>
             <p>Личная пятница</p>
-            <p dangerouslySetInnerHTML={{ __html: ev.description }} />
+            <p dangerouslySetInnerHTML={{ __html: ev?.description }} />
           </div>
         </section>
         <div className="info-button-container">
-          {ev.registred ? (
+          {ev?.registred ? (
             <button>Отменить регистрацию</button>
           ) : (
             <button>Зарегистрироваться</button>
