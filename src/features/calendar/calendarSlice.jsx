@@ -6,7 +6,7 @@ import { getMonth, getNewData } from "../../utils";
 // const url = "http://localhost:3000/events";
 // const url =
 //   "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
-const url = "/.netlify/functions/fetchData";
+const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
 
 export const getCalendarEvents = createAsyncThunk(
   "calendar/getCalendarEvents",
