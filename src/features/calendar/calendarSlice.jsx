@@ -6,7 +6,8 @@ import { getMonth, getNewData } from "../../utils";
 // const url = "http://localhost:3000/events";
 // const url =
 //   "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
-const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
+// const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
+const url = "https://api.jsonbin.io/v3/b/65ddc7ce1f5677401f3512af";
 
 export const getCalendarEvents = createAsyncThunk(
   "calendar/getCalendarEvents",
