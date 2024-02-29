@@ -10,22 +10,22 @@ import { events } from "../../data";
 // const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
 // const url = "https://api.jsonbin.io/v3/b/65ddc7ce1f5677401f3512af";
 // const url = "https://calendar-eventss.netlify.app/functions/getData";
-const url = "http://174.138.4.231:3000/events";
+// const url = "http://174.138.4.231:3000/events";
 
-export const getCalendarEvents = createAsyncThunk(
-  "calendar/getCalendarEvents",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios(url);
-      if (response.data) {
-        const data = getNewData(response.data);
-        return data;
-      }
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response);
-    }
-  }
-);
+// export const getCalendarEvents = createAsyncThunk(
+//   "calendar/getCalendarEvents",
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios(url);
+//       if (response.data) {
+//         const data = getNewData(response.data);
+//         return data;
+//       }
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.response);
+//     }
+//   }
+// );
 
 const initialState = {
   calendarEvents: [],
@@ -33,7 +33,7 @@ const initialState = {
   currentMonth: getMonth(),
   calendarDays: "",
   fullEvents: [],
-  isLoading: true,
+  isLoading: false,
 };
 
 const calendarSlice = createSlice({
@@ -52,24 +52,24 @@ const calendarSlice = createSlice({
     filterEvents: (state, action) => {
       state.calendarEvents = action.payload;
     },
-    // getCalendarEvents: (state, action) => {
-    //   state.calendarEvents = getNewData(events);
-    // },
+    getCalendarEvents: (state, action) => {
+      state.calendarEvents = getNewData(events);
+    },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getCalendarEvents.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(getCalendarEvents.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.calendarEvents = action.payload;
-      })
-      .addCase(getCalendarEvents.rejected, (state, action) => {
-        state.isLoading = false;
-        console.log(action.error);
-      });
-  },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(getCalendarEvents.pending, (state, action) => {
+  //       state.isLoading = true;
+  //     })
+  //     .addCase(getCalendarEvents.fulfilled, (state, action) => {
+  //       state.isLoading = false;
+  //       state.calendarEvents = action.payload;
+  //     })
+  //     .addCase(getCalendarEvents.rejected, (state, action) => {
+  //       state.isLoading = false;
+  //       console.log(action.error);
+  //     });
+  // },
 });
 
 export const {
@@ -78,7 +78,7 @@ export const {
   handleCurrentMonth,
   handleEvents,
   filterEvents,
-  // getCalendarEvents,
+  getCalendarEvents,
 } = calendarSlice.actions;
 
 export default calendarSlice.reducer;
