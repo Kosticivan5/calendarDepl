@@ -5,10 +5,10 @@ const initialState = {
   for_type: 0,
   starting: 0,
   lead_academy: 0,
-  lead_friday: 0,
-  learn_own: 0,
-  digital_lit: 0,
-  finance_lit: 0,
+  fri_leaders: 0,
+  expert_learning: 0,
+  cifrovaya_gramotmotnost: 0,
+  financial_literacy: 0,
 };
 
 const checkboxSlice = createSlice({

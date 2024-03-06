@@ -334,7 +334,6 @@ export const getNewData = (data) => {
       event_rb_type,
       beexpert,
       is_devops,
-      starting,
       is_la,
       type_val,
       type_detailed,
@@ -351,6 +350,14 @@ export const getNewData = (data) => {
       registred,
       in_wlist,
       hub,
+      // new ones
+      direction,
+      starting,
+      lead_academy,
+      fri_leaders,
+      expert_learning,
+      cifrovaya_gramotmotnost,
+      financial_literacy,
     } = info;
 
     // getWeeksBetweenDates(dayjs(start_date), dayjs(finish_date));
@@ -496,6 +503,7 @@ export const getNewData = (data) => {
           old_start_date: start_date,
           old_finish_date: finish_date,
           // ============
+
           local_time_string,
           event_max_pers,
           is_open,
@@ -508,7 +516,6 @@ export const getNewData = (data) => {
           event_rb_type,
           beexpert,
           is_devops,
-          starting,
           is_la,
           type_val,
           type_detailed,
@@ -526,6 +533,14 @@ export const getNewData = (data) => {
           registred,
           in_wlist,
           hub,
+          // new
+          direction,
+          starting,
+          lead_academy,
+          fri_leaders,
+          expert_learning,
+          cifrovaya_gramotmotnost,
+          financial_literacy,
         };
 
         idCounter += 1;

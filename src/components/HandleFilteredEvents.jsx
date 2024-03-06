@@ -15,10 +15,10 @@ const useHandleFilteredEvents = (
   for_type,
   starting,
   lead_academy,
-  lead_friday,
-  learn_own,
-  digital_lit,
-  finance_lit
+  fri_leaders,
+  expert_learning,
+  cifrovaya_gramotmotnost,
+  financial_literacy
 ) => {
   const { filteredEvents } = useSelector((store) => store.searchBarFilter);
   const { calendarEvents } = useSelector((store) => store.calendar);
@@ -37,10 +37,12 @@ const useHandleFilteredEvents = (
         ...(for_type === 1 ? { for_type: "boss" } : undefined),
         ...(starting === 1 ? { starting: 1 } : undefined),
         ...(lead_academy === 1 ? { lead_academy: 1 } : undefined),
-        ...(lead_friday === 1 ? { lead_friday: 1 } : undefined),
-        ...(learn_own === 1 ? { learn_own: 1 } : undefined),
-        ...(digital_lit === 1 ? { digital_lit: 1 } : undefined),
-        ...(finance_lit === 1 ? { finance_lit: 1 } : undefined),
+        ...(fri_leaders === 1 ? { fri_leaders: 1 } : undefined),
+        ...(expert_learning === 1 ? { expert_learning: 1 } : undefined),
+        ...(cifrovaya_gramotmotnost === 1
+          ? { cifrovaya_gramotmotnost: 1 }
+          : undefined),
+        ...(financial_literacy === 1 ? { financial_literacy: 1 } : undefined),
         ...(searchValue.trim() !== "" ? { name: searchValue } : undefined),
         ...(formatValue !== "" ? { type: formatValue } : undefined),
         ...(typeValue !== "" ? { direction: typeValue } : undefined),

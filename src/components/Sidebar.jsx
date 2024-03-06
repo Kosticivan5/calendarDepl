@@ -23,10 +23,10 @@ const Sidebar = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit,
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy,
   } = useSelector((store) => store.checkboxes);
 
   const { submitted, buttonDisabled } = useSelector((store) => store.sidebar);
@@ -44,10 +44,10 @@ const Sidebar = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy
   );
 
   useEffect(() => {
@@ -57,10 +57,10 @@ const Sidebar = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit,
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy,
     navigate,
     submitted,
   ]);
@@ -135,42 +135,42 @@ const Sidebar = () => {
         <div className="checkbox-input">
           <input
             type="checkbox"
-            name="lead_friday"
-            id="lead_friday"
+            name="fri_leaders"
+            id="fri_leaders"
             onChange={(e) => dispatch(toggleCheckbox(e.target.name))}
-            checked={lead_friday ? true : false}
+            checked={fri_leaders ? true : false}
           />
-          <label htmlFor="lead_friday">Лидерские пятница</label>
+          <label htmlFor="fri_leaders">Лидерские пятницы</label>
         </div>
         <div className="checkbox-input">
           <input
             type="checkbox"
-            name="learn_own"
-            id="learn_own"
+            name="expert_learning"
+            id="expert_learning"
             onChange={(e) => dispatch(toggleCheckbox(e.target.name))}
-            checked={learn_own ? true : false}
+            checked={expert_learning ? true : false}
           />
-          <label htmlFor="learn_own">Учись у своих</label>
+          <label htmlFor="expert_learning">Учись у своих</label>
         </div>
         <div className="checkbox-input">
           <input
             type="checkbox"
-            name="digital_lit"
-            id="digital_lit"
+            name="cifrovaya_gramotmotnost"
+            id="cifrovaya_gramotmotnost"
             onChange={(e) => dispatch(toggleCheckbox(e.target.name))}
-            checked={digital_lit ? true : false}
+            checked={cifrovaya_gramotmotnost ? true : false}
           />
-          <label htmlFor="digital_lit">Цифровая грамотность</label>
+          <label htmlFor="cifrovaya_gramotmotnost">Цифровая грамотность</label>
         </div>
         <div className="checkbox-input">
           <input
             type="checkbox"
-            name="finance_lit"
-            id="finance_lit"
+            name="financial_literacy"
+            id="financial_literacy"
             onChange={(e) => dispatch(toggleCheckbox(e.target.name))}
-            checked={finance_lit ? true : false}
+            checked={financial_literacy ? true : false}
           />
-          <label htmlFor="finance_lit">Финансовая грамостность</label>
+          <label htmlFor="financial_literacy">Финансовая грамостность</label>
         </div>
         {/* control buttons */}
         <div className="button-container">

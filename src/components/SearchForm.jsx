@@ -20,10 +20,10 @@ const SearchForm = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit,
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy,
   } = useSelector((store) => store.checkboxes);
 
   const { submitted, buttonDisabled } = useSelector((store) => store.sidebar);
@@ -42,10 +42,10 @@ const SearchForm = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy
   );
 
   useEffect(() => {
@@ -55,10 +55,10 @@ const SearchForm = () => {
     for_type,
     starting,
     lead_academy,
-    lead_friday,
-    learn_own,
-    digital_lit,
-    finance_lit,
+    fri_leaders,
+    expert_learning,
+    cifrovaya_gramotmotnost,
+    financial_literacy,
     navigate,
     submitted,
   ]);

@@ -11,10 +11,10 @@ export const updateFiltersFromUrl = (dispatch, location) => {
     for_type: initialRender,
     starting: initialRender,
     lead_academy: initialRender,
-    lead_friday: initialRender,
-    learn_own: initialRender,
-    digital_lit: initialRender,
-    finance_lit: initialRender,
+    fri_leaders: initialRender,
+    expert_learning: initialRender,
+    cifrovaya_gramotmotnost: initialRender,
+    financial_literacy: initialRender,
     type: initialFormatRender,
     direction: initialDirectionRender,
     name: handleSearchBarChange,
@@ -27,22 +27,22 @@ export const updateFiltersFromUrl = (dispatch, location) => {
     const action = paramActionMap[key];
     // // type(direction) select update
     if (key === "direction") {
-      if (value === "person_effect") {
+      if (value === "personaleffectivness") {
         directionValue = "Персональная эффективность";
       }
-      if (value === "lead_skill") {
+      if (value === "hrmanagement") {
         directionValue = "Лидерские навыки";
       }
-      if (value === "digital_it") {
+      if (value === "digitalit") {
         directionValue = "Digital & IT";
       }
-      if (value === "design_prod_tech") {
+      if (value === "projectmanagement") {
         directionValue = "Проектные и продуктовые технологии";
       }
-      if (value === "bank_finance") {
+      if (value === "bankAndFinance") {
         directionValue = "Банки и финансы";
       }
-      if (value === "customer_orient") {
+      if (value === "customer_centricity") {
         directionValue = "Клиентоцентричность";
       }
       dispatch(action(directionValue));
