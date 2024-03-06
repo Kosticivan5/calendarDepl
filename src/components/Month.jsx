@@ -1,16 +1,23 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect } from "react";
 import Day from "./Day";
 import GridLines from "./GridLines";
 import dayjs from "dayjs";
 // import { useGlobalContext } from "../context/GlobalContext";
 import Event from "./Event";
 import WeeklyEvents from "./WeeklyEvents";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { handleCurrentMonth } from "../features/calendar/calendarSlice";
 
 const Month = () => {
   // const { currentMonth } = useGlobalContext();
 
-  const { currentMonth } = useSelector((store) => store.calendar);
+  const dispatch = useDispatch();
+
+  const { currentMonth, monthIndex } = useSelector((store) => store.calendar);
+
+  useEffect(() => {
+    dispatch(handleCurrentMonth());
+  }, [monthIndex]);
 
   return (
     <section className="month-grid">

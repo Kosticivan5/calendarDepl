@@ -18,8 +18,16 @@ const Event = ({
 }) => {
   const location = useLocation();
   const eventStart = dayjs(start_date).day();
+  console.log(dayjs(start_date).format("DD"), dayjs(finish_date).format("DD"));
+
   let eventEnd = dayjs(finish_date).diff(dayjs(start_date), "day");
+
+  if (multiWeek && eventStart === 5) {
+    eventEnd -= 1;
+  }
+
   eventEnd += 1;
+
   const titleLimit = name.substring(0, 18);
 
   const registeredEventClass = () => {

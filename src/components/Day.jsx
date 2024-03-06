@@ -7,7 +7,7 @@ const Day = ({ day, rowIndex }) => {
   // current day
   const highlightCurrDay = () => {
     if (day) {
-      return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
+      return dayjs(day).format("DD-MM-YY") === dayjs().format("DD-MM-YY")
         ? "highlightDay"
         : "";
     }
@@ -19,11 +19,11 @@ const Day = ({ day, rowIndex }) => {
         {/* day */}
         {dayjs(day).isBefore(dayjs().subtract(1, "day")) ? (
           <p className={`day__text ${highlightCurrDay()} dim`}>
-            {day.format("D")}
+            {dayjs(day).format("D")}
           </p>
         ) : (
           <p className={`day__text ${highlightCurrDay()} `}>
-            {day.format("D")}
+            {dayjs(day).format("D")}
           </p>
         )}
       </div>

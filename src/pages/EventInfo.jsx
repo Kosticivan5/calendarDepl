@@ -11,6 +11,13 @@ import { useLocation } from "react-router-dom";
 import { displayedCities } from "../features/eventInfo/EventInfoSlice";
 import { useEffect } from "react";
 
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("Europe/Moscow");
+
 const EventInfo = () => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -49,13 +56,13 @@ const EventInfo = () => {
               <CiCalendar />
               {ev?.old_start_date && ev?.old_finish_date ? (
                 <>
-                  <p>{dayjs(ev?.old_start_date).format(" D MMMM")}</p>
-                  <p>{dayjs(ev?.old_start_date).format("LT")}</p>
+                  <p>{dayjs.tz(ev?.old_start_date).format(" D MMMM")}</p>
+                  <p>{dayjs.tz(ev?.old_start_date).format("HH:mm")}</p>
                 </>
               ) : (
                 <>
-                  <p>{dayjs(ev?.start_date).format(" D MMMM")}</p>
-                  <p>{dayjs(ev?.start_date).format("LT")}</p>
+                  <p>{dayjs.tz(ev?.start_date).format(" D MMMM")}</p>
+                  <p>{dayjs.tz(ev?.start_date).format("HH:mm")}</p>
                 </>
               )}
               <p>мск</p>
@@ -95,25 +102,25 @@ const EventInfo = () => {
             <p>Начало</p>
             {ev?.old_start_date ? (
               <p>
-                {dayjs(ev?.old_start_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev?.old_start_date).format("LT")} мск
+                {dayjs.tz(ev?.old_start_date).format("DD.MM.YYYY")}{" "}
+                {dayjs.tz(ev?.old_start_date).format("HH:mm")} мск
               </p>
             ) : (
               <p>
-                {dayjs(ev?.start_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev?.start_date).format("LT")} мск
+                {dayjs.tz(ev?.start_date).format("DD.MM.YYYY")}{" "}
+                {dayjs.tz(ev?.start_date).format("HH:mm")} мск
               </p>
             )}
             <p>Завершение</p>
             {ev?.old_finish_date ? (
               <p>
-                {dayjs(ev?.old_finish_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev?.old_finish_date).format("LT")} мск
+                {dayjs.tz(ev?.old_finish_date).format("DD.MM.YYYY")}{" "}
+                {dayjs.tz(ev?.old_finish_date).format("HH:mm")} мск
               </p>
             ) : (
               <p>
-                {dayjs(ev?.finish_date).format("DD.MM.YYYY")}{" "}
-                {dayjs(ev?.finish_date).format("LT")} мск
+                {dayjs.tz(ev?.finish_date).format("DD.MM.YYYY")}{" "}
+                {dayjs.tz(ev?.finish_date).format("HH:mm")} мск
               </p>
             )}
 
@@ -127,13 +134,18 @@ const EventInfo = () => {
             <p dangerouslySetInnerHTML={{ __html: ev?.description }} />
           </div>
         </section>
-        <div className="info-button-container">
-          {ev?.registred ? (
-            <button>Отменить регистрацию</button>
-          ) : (
-            <button>Зарегистрироваться</button>
-          )}
-        </div>
+        {dayjs.tz(ev?.old_finish_date).isBefore(dayjs()) ||
+        dayjs.tz(ev?.finish_date).isBefore(dayjs()) ? (
+          ""
+        ) : (
+          <div className="info-button-container">
+            {ev?.registred ? (
+              <button>Отменить регистрацию</button>
+            ) : (
+              <button>Зарегистрироваться</button>
+            )}
+          </div>
+        )}
       </aside>
     </>
   );

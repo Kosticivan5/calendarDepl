@@ -29,24 +29,23 @@ function App() {
 
   const history = createHashHistory();
   const location = history.location;
-  const pathname = location.pathname;
-  const search = location.search;
-  const hash = location.hash;
+  // const pathname = location.pathname;
+  // const search = location.search;
+  // const hash = location.hash;
 
-  const { isLoading, monthIndex, calendarEvents } = useSelector(
-    (store) => store.calendar
-  );
+  const { monthIndex, calendarEvents } = useSelector((store) => store.calendar);
 
   useEffect(() => {
-    // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
-    // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
-    // }
-    dispatch(getCalendarEvents());
+    const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
+    if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
+      dispatch(getCalendarEvents());
+      // dispatch(isSubmitted(true));
+    }
   }, []);
 
-  useEffect(() => {
-    dispatch(handleCurrentMonth());
-  }, [monthIndex]);
+  // useEffect(() => {
+  //   dispatch(handleCurrentMonth());
+  // }, [monthIndex]);
 
   useEffect(() => {
     updateFiltersFromUrl(dispatch, location);
