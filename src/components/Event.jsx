@@ -18,7 +18,6 @@ const Event = ({
 }) => {
   const location = useLocation();
   const eventStart = dayjs(start_date).day();
-  console.log(dayjs(start_date).format("DD"), dayjs(finish_date).format("DD"));
 
   let eventEnd = dayjs(finish_date).diff(dayjs(start_date), "day");
 

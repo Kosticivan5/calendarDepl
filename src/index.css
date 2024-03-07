@@ -232,6 +232,11 @@
   border-radius: 12px;
   cursor: pointer;
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.search-form__btn:hover {
+  opacity: 0.8;
 }
 
 .search-icon {
@@ -370,6 +375,11 @@
   cursor: pointer;
   letter-spacing: 0.25px;
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.button-container button:hover {
+  opacity: 0.8;
 }
 
 .button-container button:first-child {
@@ -385,9 +395,6 @@
 .event {
   background-color: var(--white);
   text-decoration: none;
-  /* background-color: #00264e; */
-  /* border: 1px solid #00264e; */
-  /* border: 1px solid #e70029; */
   border: 1px solid var(--grey);
   /* border: none; */
   height: 31px;
@@ -660,7 +667,7 @@
   top: 0;
   /* right: -100%; */
   right: 0;
-  z-index: 999;
+  z-index: 900;
   transition: all 1s ease;
   display: block;
   padding: 70px 56px 50px;
@@ -680,7 +687,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 998;
+  z-index: 800;
   opacity: 0.32;
 }
 
@@ -809,8 +816,15 @@
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
+  transition: var(--transition);
   /* letter-spacing: -0.24px; */
 }
+
+.info-button-container button:hover {
+  opacity: 0.8;
+}
+
+/* ========modal======== */
 
 /* scrollbar styling */
 
