@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isOpen: false,
   regions: "",
+  registration: false,
+  cancelation: false,
+  isModalOpened: false,
 };
 
 const EventInfoSlice = createSlice({
   name: "eventInfo",
   initialState,
   reducers: {
-    openEvent: (state, action) => {
-      state.isOpen = true;
-    },
     displayedCities: (state, action) => {
       if (action.payload) {
         const cities = action.payload
@@ -24,9 +23,19 @@ const EventInfoSlice = createSlice({
         state.regions = cities;
       }
     },
+    openModal: (state, action) => {
+      state[action.payload] = true;
+      state.isModalOpened = true;
+    },
+    closeModal: (state, action) => {
+      state.registration = false;
+      state.cancelation = false;
+      state.isModalOpened = false;
+    },
   },
 });
 
-export const { openEvent, displayedCities } = EventInfoSlice.actions;
+export const { displayedCities, openModal, closeModal } =
+  EventInfoSlice.actions;
 
 export default EventInfoSlice.reducer;

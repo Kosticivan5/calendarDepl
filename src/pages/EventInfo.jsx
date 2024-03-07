@@ -10,6 +10,7 @@ import formatDurationInRussian from "../getTimeConverted";
 import { useLocation } from "react-router-dom";
 import { displayedCities } from "../features/eventInfo/EventInfoSlice";
 import { useEffect } from "react";
+import { openModal } from "../features/eventInfo/EventInfoSlice";
 
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
@@ -140,9 +141,13 @@ const EventInfo = () => {
         ) : (
           <div className="info-button-container">
             {ev?.registred ? (
-              <button>Отменить регистрацию</button>
+              <button onClick={() => dispatch(openModal("cancelation"))}>
+                Отменить регистрацию
+              </button>
             ) : (
-              <button>Зарегистрироваться</button>
+              <button onClick={() => dispatch(openModal("registration"))}>
+                Зарегистрироваться
+              </button>
             )}
           </div>
         )}

@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import CalendarNavBar from "../components/CalendarNavBar";
 import { useSelector } from "react-redux";
+import Modal from "../components/Modal";
 
 const SharedLayout = () => {
   const { isLoading } = useSelector((store) => store.calendar);
+  const { isModalOpened } = useSelector((store) => store.eventInfo);
 
   if (isLoading) {
     return (
@@ -19,6 +21,7 @@ const SharedLayout = () => {
         <img src="banner.jpg" alt="" />
         <p>Календарь</p>
       </div>
+      {isModalOpened && <Modal />}
       <CalendarNavBar />
       <Outlet />
     </>
