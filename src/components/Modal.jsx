@@ -1,13 +1,13 @@
 import { GoCheckCircleFill } from "react-icons/go";
-import { closeModal } from "../features/eventInfo/EventInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { closeModal } from "../features/eventInfo/EventInfoSlice";
 
 const Modal = () => {
-  const dispatch = useDispatch();
   const { cancelation, registration } = useSelector((store) => store.eventInfo);
+  const dispatch = useDispatch();
 
   return (
-    <div onClick={() => dispatch(closeModal("registration"))} className="modal">
+    <div onClick={() => dispatch(closeModal())} className="modal">
       <div className="check">
         <GoCheckCircleFill />
         {cancelation && (

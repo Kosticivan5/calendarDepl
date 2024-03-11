@@ -33,7 +33,7 @@ function App() {
   // const search = location.search;
   // const hash = location.hash;
 
-  const { monthIndex, calendarEvents } = useSelector((store) => store.calendar);
+  const { calendarEvents } = useSelector((store) => store.calendar);
 
   useEffect(() => {
     const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));

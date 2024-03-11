@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import dayjs from "dayjs";
 import axios from "axios";
-import { getMonth, getNewData } from "../../utils";
+import { getNewData } from "../../utils";
+import { getMonth } from "../../getMonth";
 import { events } from "../../data";
 
 const url = "http://localhost:3000/events";

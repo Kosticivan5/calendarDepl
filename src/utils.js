@@ -33,33 +33,33 @@ dayjs.extend(weekOfYear);
 // ===================--=================
 
 // get month
-export const getMonth = (month = dayjs().month()) => {
-  const year = dayjs().year();
-  const firstDayOfMonth = dayjs(new Date(year, month, 1)).day();
+// export const getMonth = (month = dayjs().month()) => {
+//   const year = dayjs().year();
+//   const firstDayOfMonth = dayjs(new Date(year, month, 1)).day();
 
-  let currentMonthCount = 1 - firstDayOfMonth;
-  let count = 0;
+//   let currentMonthCount = 1 - firstDayOfMonth;
+//   let count = 0;
 
-  const daysMatrix = new Array(5).fill([]).map(() => {
-    count++;
+//   const daysMatrix = new Array(5).fill([]).map(() => {
+//     count++;
 
-    if (count > 1) {
-      currentMonthCount += 2;
-    }
-    return new Array(5).fill(null).map(() => {
-      currentMonthCount++;
-      if (
-        dayjs(new Date(year, month, currentMonthCount)).format("MMMM") !==
-        dayjs(new Date(year, month, 1)).format("MMMM")
-      ) {
-        return "";
-      }
-      return dayjs(new Date(year, month, currentMonthCount));
-    });
-  });
+//     if (count > 1) {
+//       currentMonthCount += 2;
+//     }
+//     return new Array(5).fill(null).map(() => {
+//       currentMonthCount++;
+//       if (
+//         dayjs(new Date(year, month, currentMonthCount)).format("MMMM") !==
+//         dayjs(new Date(year, month, 1)).format("MMMM")
+//       ) {
+//         return "";
+//       }
+//       return dayjs(new Date(year, month, currentMonthCount));
+//     });
+//   });
 
-  return daysMatrix;
-};
+//   return daysMatrix;
+// };
 
 // // ===========--===========
 export const getNewData = (data) => {
