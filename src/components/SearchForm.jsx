@@ -98,8 +98,10 @@ const SearchForm = () => {
             type="button"
             onClick={() => {
               setValue("");
-              dispatch(resetSearchBarValue(""));
-              dispatch(isSubmitted(true));
+              if (searchValue) {
+                dispatch(resetSearchBarValue(""));
+                dispatch(isSubmitted(true));
+              }
             }}
             className="search-reset-icon"
           >

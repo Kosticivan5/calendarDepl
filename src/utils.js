@@ -76,8 +76,8 @@ export const getNewData = (data) => {
 
     // if the weeks of two dates don't have same week or same moth, we process them
     if (
-      dayjs(start_date).week() !== dayjs(finish_date).week() ||
-      dayjs(start_date).month() !== dayjs(finish_date).month()
+      dayjs.tz(start_date).week() !== dayjs.tz(finish_date).week() ||
+      dayjs.tz(start_date).month() !== dayjs.tz(finish_date).month()
     ) {
       // variables for new properties
       let newStartDate;
@@ -90,19 +90,19 @@ export const getNewData = (data) => {
       let idCounter = 0;
       let multiMonthStartDay;
       let amountOfWeeks = getWeeksBetweenDates(
-        dayjs(start_date),
-        dayjs(finish_date)
+        dayjs.tz(start_date),
+        dayjs.tz(finish_date)
       );
       // calculate how many end of month dates are not on fri,sut,sun
       // and add i to the amount of weeks count
 
       // if the start and finish dates are on a different month
       // we add one more loop to split the events
-      const endOfMonthOrigin = dayjs(start_date).endOf("month");
-      const endOfMonthOriginIncluded = dayjs(endOfMonthOrigin).isBetween(
-        start_date,
-        finish_date
-      );
+
+      const endOfMonthOrigin = dayjs.tz(start_date).endOf("month");
+      const endOfMonthOriginIncluded = dayjs
+        .tz(endOfMonthOrigin)
+        .isBetween(start_date, finish_date);
       if (endOfMonthOriginIncluded) {
         amountOfWeeks =
           amountOfWeeks + endOfMonthNonWeekendDays(start_date, finish_date);
@@ -115,7 +115,7 @@ export const getNewData = (data) => {
         isMiddle = 1;
 
         if (i === 0) {
-          newStartDate = dayjs(start_date).clone(); // Clone added here
+          newStartDate = dayjs.tz(start_date); // Clone added here
           isFirst = 1;
           // isLast = 0;
           isMiddle = 0;
@@ -131,7 +131,7 @@ export const getNewData = (data) => {
           isLast = 0;
         }
         if (multiMonthStartDay) {
-          newStartDate = multiMonthStartDay.clone(); // Clone added here
+          newStartDate = multiMonthStartDay; // Clone added here
         }
         multiMonthStartDay = null;
         // the start of the event
@@ -147,8 +147,8 @@ export const getNewData = (data) => {
         // start date is smaller than the allowed to span amount, then we just
         // reassign the value of the span as addDays as a difference between the
         // new start date and the original finish date
-        if (dayjs(finish_date).diff(newStartDate, "day") < allowedToSpan) {
-          addDays = dayjs(finish_date).diff(newStartDate, "day");
+        if (dayjs.tz(finish_date).diff(newStartDate, "day") < allowedToSpan) {
+          addDays = dayjs.tz(finish_date).diff(newStartDate, "day");
         }
         // new finish date is equals to new start date, plus the allowed to span amount
         // as a addDays variable
@@ -175,7 +175,7 @@ export const getNewData = (data) => {
         newFinishDate = newStartDate.add(addDays, "day").format();
         // ========
 
-        let eventSpanEnd = dayjs(finish_date).diff(newStartDate, "day");
+        let eventSpanEnd = dayjs.tz(finish_date).diff(newStartDate, "day");
 
         if (eventSpanEnd < 1) {
           eventSpanEnd = 1;
@@ -205,7 +205,7 @@ export const getNewData = (data) => {
         if (eventSpanEnd > allowedToSpan) {
           spanTransfer = eventSpanEnd - allowedToSpan;
         }
-        newDay = dayjs(finish_date).subtract(spanTransfer, "day");
+        newDay = dayjs.tz(finish_date).subtract(spanTransfer, "day");
         if (newDay.day() === 6) {
           newDay = newDay.add(2, "day");
         }

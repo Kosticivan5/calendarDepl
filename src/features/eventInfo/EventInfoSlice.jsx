@@ -27,7 +27,6 @@ export const cancelRegistration = createAsyncThunk(
       );
 
       thunkAPI.dispatch(openModal("cancelation"));
-      console.log(response.data);
     } catch (error) {
       console.log(error);
       thunkAPI.rejectWithValue(error.response);
@@ -57,7 +56,6 @@ export const addRegistration = createAsyncThunk(
       );
 
       thunkAPI.dispatch(openModal("registration"));
-      console.log(response.data);
     } catch (error) {
       console.log(error);
       thunkAPI.rejectWithValue(error.response);

@@ -14,18 +14,13 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("Europe/Moscow");
-// dayjs().utcOffset(180);
 
 dayjs.extend(localizedFormat);
 dayjs.locale("ru");
-// ---
 dayjs.extend(duration);
 dayjs.duration();
-// ---
 dayjs.extend(relativeTime);
-// ---
 dayjs.extend(isBetween);
-
 dayjs.extend(weekOfYear);
 
 // ===================--=================

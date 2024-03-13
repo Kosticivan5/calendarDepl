@@ -2,6 +2,7 @@ import { initialRender } from "./features/checkboxes/checkboxesSlice";
 import { initialDirectionRender } from "./features/typesDropdown/typesDropdownSlice";
 import { initialFormatRender } from "./features/formatDropdown/formatDropdownSlice";
 import { handleSearchBarChange } from "./features/Searchbar/searchbarSlice";
+import { useLocation } from "react-router-dom";
 
 export const updateFiltersFromUrl = (dispatch, location) => {
   const urlParams = new URLSearchParams(location.search);

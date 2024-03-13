@@ -1,6 +1,7 @@
 import { GoCheckCircleFill } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../features/eventInfo/EventInfoSlice";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const Modal = () => {
   const { cancelation, registration } = useSelector((store) => store.eventInfo);
@@ -9,6 +10,9 @@ const Modal = () => {
   return (
     <div onClick={() => dispatch(closeModal())} className="modal">
       <div className="check">
+        <button>
+          <IoCloseCircleOutline />
+        </button>
         <GoCheckCircleFill />
         {cancelation && (
           <p>

@@ -38,8 +38,8 @@ function App() {
   useEffect(() => {
     const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
     if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
-      dispatch(getCalendarEvents());
       // dispatch(isSubmitted(true));
+      dispatch(getCalendarEvents());
     }
   }, []);
 
