@@ -141,8 +141,8 @@ const EventInfo = () => {
             <p dangerouslySetInnerHTML={{ __html: ev?.description }} />
           </div>
         </section>
-        {dayjs.tz(ev?.old_finish_date).isBefore(dayjs()) ||
-        dayjs.tz(ev?.finish_date).isBefore(dayjs()) ? (
+        {dayjs.tz(ev?.old_start_date).isBefore(dayjs()) ||
+        dayjs.tz(ev?.start_date).isBefore(dayjs()) ? (
           ""
         ) : (
           <div className="info-button-container">

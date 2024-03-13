@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { filterEvents } from "../features/calendar/calendarSlice";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { store } from "../store";
 
 const useHandleFilteredEvents = (
@@ -20,14 +20,14 @@ const useHandleFilteredEvents = (
   cifrovaya_gramotmotnost,
   financial_literacy
 ) => {
-  const { filteredEvents } = useSelector((store) => store.searchBarFilter);
+  // const { filteredEvents } = useSelector((store) => store.searchBarFilter);
   const { calendarEvents } = useSelector((store) => store.calendar);
 
   const { searchValue } = useSelector((store) => store.searchBarFilter);
   const { formatValue } = useSelector((store) => store.formatDropdown);
   const { typeValue } = useSelector((store) => store.typesDropdown);
 
-  const filteredLogic = () => {
+  const filteredLogic = useCallback(() => {
     // const urlSearchParams = new URLSearchParams(location.search);
     // const queryParams = Object.fromEntries(urlSearchParams.entries());
 
@@ -80,7 +80,7 @@ const useHandleFilteredEvents = (
       dispatch(filterEvents(newFilteredEvents));
       dispatch(isSubmitted(false));
     }
-  };
+  }, [conditions, submitted, navigate, dispatch, filterEvents, isSubmitted]);
 
   return filteredLogic;
 };

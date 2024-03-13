@@ -11,10 +11,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { isSubmitted } from "../features/sidebar/sidebarSlice";
 
 const SearchForm = () => {
-  // const [value, setValue] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const {
     registred,
     for_type,
@@ -28,6 +24,9 @@ const SearchForm = () => {
 
   const { submitted, buttonDisabled } = useSelector((store) => store.sidebar);
   const { searchValue } = useSelector((store) => store.searchBarFilter);
+  const [value, setValue] = useState(searchValue);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   let conditions = {};
 
@@ -76,6 +75,8 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(value);
+    dispatch(handleSearchBarChange(value));
     dispatch(isSubmitted(true));
   };
 
@@ -84,19 +85,19 @@ const SearchForm = () => {
       <div className="search-input-container">
         <CiSearch className="search-icon" />
         <input
-          onChange={(e) => dispatch(handleSearchBarChange(e.target.value))}
+          onChange={(e) => setValue(e.target.value)}
           type="text"
           name="name"
-          value={searchValue}
+          value={value}
           className="search-form__input"
           placeholder="Поиск внутри календаря"
           autoComplete="off"
         />
-        {searchValue.trim() !== "" && (
+        {value.trim() !== "" && (
           <button
             type="button"
             onClick={() => {
-              // setValue("");
+              setValue("");
               dispatch(resetSearchBarValue(""));
               dispatch(isSubmitted(true));
             }}
