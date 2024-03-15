@@ -10,7 +10,7 @@ import {
 
 import { useEffect } from "react";
 import { isSubmitted } from "../features/sidebar/sidebarSlice";
-import useHandleFilteredEvents from "./HandleFilteredEvents";
+import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { resetType } from "../features/typesDropdown/typesDropdownSlice";
 import { resetFormat } from "../features/formatDropdown/formatDropdownSlice";
 import TopCheckboxFilters from "./ui/TopCheckboxFilters";

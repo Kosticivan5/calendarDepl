@@ -47,7 +47,7 @@ export const getMonth = (month = dayjs().month()) => {
       ) {
         return "";
       }
-      return dayjs(new Date(year, month, currentMonthCount));
+      return dayjs(new Date(year, month, currentMonthCount)).format();
     });
   });
 

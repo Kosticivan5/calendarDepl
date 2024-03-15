@@ -89,7 +89,6 @@ const EventInfoSlice = createSlice({
     },
     openModal: (state, action) => {
       state[action.payload] = true;
-      state.isModalOpened = true;
     },
     closeModal: (state, action) => {
       state.registration = false;
@@ -104,6 +103,7 @@ const EventInfoSlice = createSlice({
       })
       .addCase(cancelRegistration.fulfilled, (state, action) => {
         state.isRegistrationLoading = false;
+        state.isModalOpened = true;
       })
       .addCase(cancelRegistration.rejected, (state, action) => {
         state.isRegistrationLoading = false;
@@ -113,6 +113,7 @@ const EventInfoSlice = createSlice({
       })
       .addCase(addRegistration.fulfilled, (state, action) => {
         state.isRegistrationLoading = false;
+        state.isModalOpened = true;
       })
       .addCase(addRegistration.rejected, (state, action) => {
         state.isRegistrationLoading = false;

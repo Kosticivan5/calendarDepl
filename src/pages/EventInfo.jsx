@@ -10,7 +10,6 @@ import formatDurationInRussian from "../getTimeConverted";
 import { useLocation } from "react-router-dom";
 import { displayedCities } from "../features/eventInfo/EventInfoSlice";
 import { useEffect } from "react";
-import { openModal } from "../features/eventInfo/EventInfoSlice";
 import {
   cancelRegistration,
   addRegistration,
@@ -141,13 +140,17 @@ const EventInfo = () => {
             <p dangerouslySetInnerHTML={{ __html: ev?.description }} />
           </div>
         </section>
-        {dayjs.tz(ev?.old_start_date).isBefore(dayjs()) ||
-        dayjs.tz(ev?.start_date).isBefore(dayjs()) ? (
+        {/* {dayjs.tz(ev?.old_start_date).isBefore(dayjs()) ||
+        dayjs.tz(ev?.start_date).isBefore(dayjs()) ? ( */}
+        {ev?.is_passed ? (
           ""
         ) : (
           <div className="info-button-container">
             {ev?.registred ? (
-              <button onClick={() => dispatch(cancelRegistration("1"))}>
+              <button
+                disabled={isRegistrationLoading}
+                onClick={() => dispatch(cancelRegistration("1"))}
+              >
                 {isRegistrationLoading ? (
                   <span className="loading-spinner"></span>
                 ) : (
@@ -155,7 +158,10 @@ const EventInfo = () => {
                 )}
               </button>
             ) : (
-              <button onClick={() => dispatch(addRegistration("2"))}>
+              <button
+                disabled={isRegistrationLoading}
+                onClick={() => dispatch(addRegistration("2"))}
+              >
                 {isRegistrationLoading ? (
                   <span className="loading-spinner"></span>
                 ) : (

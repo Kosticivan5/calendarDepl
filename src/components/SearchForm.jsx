@@ -6,7 +6,7 @@ import {
 } from "../features/Searchbar/searchbarSlice";
 import { useEffect, useMemo, useState } from "react";
 import { GrClose } from "react-icons/gr";
-import useHandleFilteredEvents from "./HandleFilteredEvents";
+import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { useNavigate, useLocation } from "react-router-dom";
 import { isSubmitted } from "../features/sidebar/sidebarSlice";
 
@@ -76,6 +76,7 @@ const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(value);
+
     dispatch(handleSearchBarChange(value));
     dispatch(isSubmitted(true));
   };

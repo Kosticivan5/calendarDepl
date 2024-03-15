@@ -23,6 +23,7 @@ import { updateFiltersFromUrl } from "./filtersUtils";
 import { isSubmitted } from "./features/sidebar/sidebarSlice";
 import ErrorPage from "./components/ErrorPage";
 import Redirect from "./Redirect";
+import dayjs from "dayjs";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,14 +34,15 @@ function App() {
   // const search = location.search;
   // const hash = location.hash;
 
-  const { calendarEvents } = useSelector((store) => store.calendar);
+  const { calendarEvents, monthIndex } = useSelector((store) => store.calendar);
 
   useEffect(() => {
-    const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
-    if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
-      // dispatch(isSubmitted(true));
-      dispatch(getCalendarEvents());
-    }
+    const currYear = dayjs().year();
+    // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
+    // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
+    //   // dispatch(isSubmitted(true));
+    // }
+    dispatch(getCalendarEvents());
   }, []);
 
   // useEffect(() => {

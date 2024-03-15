@@ -5,19 +5,23 @@ import { getNewData } from "../../utils";
 import { getMonth } from "../../getMonth";
 import { events } from "../../data";
 
-const url = "http://localhost:3000/events";
-// const url =
-//   "https://raw.githubusercontent.com/Kosticivan5/calendarDepl/main/db.json";
-// const url = "https://kosticivan5.github.io/jsoncalendardata/db.json";
-// const url = "https://api.jsonbin.io/v3/b/65ddc7ce1f5677401f3512af";
-// const url = "https://calendar-eventss.netlify.app/functions/getData";
-// const url = "http://174.138.4.231:3000/events";
+const url =
+  "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6673451655755009275";
+
+// const url = "http://localhost:3000/events";
 
 export const getCalendarEvents = createAsyncThunk(
   "calendar/getCalendarEvents",
   async (_, thunkAPI) => {
+    const { monthIndex } = thunkAPI.getState().calendar;
+    const nextMonthIndex = monthIndex % 12;
     try {
-      const response = await axios(url);
+      console.log(
+        `${url}&date_month=${nextMonthIndex}&date_year=${dayjs().year()}`
+      );
+      const response = await axios(
+        `${url}&date_month=${nextMonthIndex}&date_year=${dayjs().year()}`
+      );
       if (response.data) {
         const data = getNewData(response.data);
         return data;
