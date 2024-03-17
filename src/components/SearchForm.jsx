@@ -78,6 +78,7 @@ const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(value);
+    sdfsdf;
 
     dispatch(handleSearchBarChange(value));
     dispatch(isSubmitted(true));
