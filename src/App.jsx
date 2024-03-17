@@ -20,7 +20,8 @@ import SharedLayout from "./pages/SharedLayout";
 import EventInfo from "./pages/EventInfo";
 import { createHashHistory } from "history";
 import { updateFiltersFromUrl } from "./filtersUtils";
-import { isSubmitted } from "./features/sidebar/sidebarSlice";
+// import { isSubmitted } from "./features/sidebar/sidebarSlice";
+import { isSubmitted } from "./features/calendar/calendarSlice";
 import ErrorPage from "./components/ErrorPage";
 import Redirect from "./Redirect";
 import dayjs from "dayjs";
@@ -34,13 +35,11 @@ function App() {
   // const search = location.search;
   // const hash = location.hash;
 
-  const { calendarEvents, monthIndex } = useSelector((store) => store.calendar);
+  // const { calendarEvents } = useSelector((store) => store.calendar);
 
   useEffect(() => {
-    const currYear = dayjs().year();
     // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
     // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
-    //   // dispatch(isSubmitted(true));
     // }
     dispatch(getCalendarEvents());
   }, []);
@@ -54,9 +53,9 @@ function App() {
     dispatch(isSubmitted(true));
   }, [location.search]);
 
-  useEffect(() => {
-    localStorage.setItem("eventList", JSON.stringify(calendarEvents));
-  }, [location.search, calendarEvents]);
+  // useEffect(() => {
+  //   localStorage.setItem("eventList", JSON.stringify(calendarEvents));
+  // }, [location.search, calendarEvents]);
 
   // if (isLoading) {
   //   return (

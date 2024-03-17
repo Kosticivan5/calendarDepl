@@ -107,12 +107,13 @@ export const getNewData = (data) => {
         amountOfWeeks =
           amountOfWeeks + endOfMonthNonWeekendDays(start_date, finish_date);
       }
-
+      console.log("amount-of-weeks:", amountOfWeeks);
       // loop that determines to how many peaces we split the event
-      for (let i = 0; i <= amountOfWeeks; i++) {
+      for (let i = 0; i < amountOfWeeks; i++) {
         // if it's the first slice, it gets property of 1
 
         isMiddle = 1;
+        console.log("new-start-date:", newStartDate);
 
         if (i === 0) {
           newStartDate = dayjs.tz(start_date); // Clone added here
@@ -123,7 +124,7 @@ export const getNewData = (data) => {
           isFirst = 0;
         }
         // if it's the last slice, it gets property of 1 as last
-        if (i === amountOfWeeks) {
+        if (i === amountOfWeeks - 1) {
           isLast = 1;
           // isFirst = 0;
           isMiddle = 0;

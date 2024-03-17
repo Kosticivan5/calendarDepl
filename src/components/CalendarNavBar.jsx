@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { isSubmitted } from "../features/sidebar/sidebarSlice";
+// import { isSubmitted } from "../features/sidebar/sidebarSlice";
+import { isSubmitted } from "../features/calendar/calendarSlice";
 
 const CalendarNavBar = () => {
   const dispatch = useDispatch();

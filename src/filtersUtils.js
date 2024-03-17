@@ -26,6 +26,7 @@ export const updateFiltersFromUrl = (dispatch, location) => {
 
   urlParams.forEach((value, key) => {
     const action = paramActionMap[key];
+    console.log(action);
     // // type(direction) select update
     if (key === "direction") {
       if (value === "personaleffectivness") {

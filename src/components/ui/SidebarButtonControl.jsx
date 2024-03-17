@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { resetCheckboxes } from "../../features/checkboxes/checkboxesSlice";
 import { resetType } from "../../features/typesDropdown/typesDropdownSlice";
 import { resetFormat } from "../../features/formatDropdown/formatDropdownSlice";
-import { isSubmitted } from "../../features/sidebar/sidebarSlice";
+import { isSubmitted } from "../../features/calendar/calendarSlice";
 
 const SidebarButtonControl = () => {
   const dispatch = useDispatch();

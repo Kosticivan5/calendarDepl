@@ -27,7 +27,7 @@ const useHandleFilteredEvents = (
   const { formatValue } = useSelector((store) => store.formatDropdown);
   const { typeValue } = useSelector((store) => store.typesDropdown);
 
-  const filteredLogic = useCallback(() => {
+  const filteredLogic = () => {
     // const urlSearchParams = new URLSearchParams(location.search);
     // const queryParams = Object.fromEntries(urlSearchParams.entries());
 
@@ -80,7 +80,7 @@ const useHandleFilteredEvents = (
       dispatch(filterEvents(newFilteredEvents));
       dispatch(isSubmitted(false));
     }
-  }, [conditions, submitted, navigate, dispatch, filterEvents, isSubmitted]);
+  };
 
   return filteredLogic;
 };

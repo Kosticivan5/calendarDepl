@@ -9,7 +9,8 @@ import {
 } from "../features/checkboxes/checkboxesSlice";
 
 import { useEffect } from "react";
-import { isSubmitted } from "../features/sidebar/sidebarSlice";
+// import { isSubmitted } from "../features/sidebar/sidebarSlice";
+import { isSubmitted } from "../features/calendar/calendarSlice";
 import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { resetType } from "../features/typesDropdown/typesDropdownSlice";
 import { resetFormat } from "../features/formatDropdown/formatDropdownSlice";
@@ -32,7 +33,8 @@ const Sidebar = () => {
     financial_literacy,
   } = useSelector((store) => store.checkboxes);
 
-  const { submitted, buttonDisabled } = useSelector((store) => store.sidebar);
+  const { buttonDisabled } = useSelector((store) => store.sidebar);
+  const { submitted } = useSelector((store) => store.calendar);
 
   let conditions = {};
 

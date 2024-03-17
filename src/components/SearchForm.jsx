@@ -8,7 +8,8 @@ import { useEffect, useMemo, useState } from "react";
 import { GrClose } from "react-icons/gr";
 import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { useNavigate, useLocation } from "react-router-dom";
-import { isSubmitted } from "../features/sidebar/sidebarSlice";
+// import { isSubmitted } from "../features/sidebar/sidebarSlice";
+import { isSubmitted } from "../features/calendar/calendarSlice";
 
 const SearchForm = () => {
   const {
@@ -22,7 +23,8 @@ const SearchForm = () => {
     financial_literacy,
   } = useSelector((store) => store.checkboxes);
 
-  const { submitted, buttonDisabled } = useSelector((store) => store.sidebar);
+  const { buttonDisabled } = useSelector((store) => store.sidebar);
+  const { submitted } = useSelector((store) => store.calendar);
   const { searchValue } = useSelector((store) => store.searchBarFilter);
   const [value, setValue] = useState(searchValue);
   const dispatch = useDispatch();

@@ -14,16 +14,23 @@ export const getCalendarEvents = createAsyncThunk(
   "calendar/getCalendarEvents",
   async (_, thunkAPI) => {
     const { monthIndex } = thunkAPI.getState().calendar;
-    const nextMonthIndex = monthIndex % 12;
+
+    let nextMonthIndex = monthIndex % 12;
+    if (nextMonthIndex < 0) {
+      nextMonthIndex = nextMonthIndex + 12;
+    }
+
+    const yearToFetch = dayjs(new Date(dayjs().year(), monthIndex)).format(
+      "YYYY"
+    );
+
     try {
-      console.log(
-        `${url}&date_month=${nextMonthIndex}&date_year=${dayjs().year()}`
-      );
       const response = await axios(
-        `${url}&date_month=${nextMonthIndex}&date_year=${dayjs().year()}`
+        `${url}&date_month=${nextMonthIndex}&date_year=${yearToFetch}`
       );
       if (response.data) {
         const data = getNewData(response.data);
+
         return data;
       }
     } catch (error) {
@@ -39,12 +46,18 @@ const initialState = {
   calendarDays: "",
   fullEvents: [],
   isLoading: true,
+  submitted: false,
 };
 
 const calendarSlice = createSlice({
   name: "calendar",
   initialState,
   reducers: {
+    // ==
+    isSubmitted: (state, action) => {
+      state.submitted = action.payload;
+    },
+    // ==
     prevMonth: (state, action) => {
       state.monthIndex = state.monthIndex - 1;
     },
@@ -57,6 +70,7 @@ const calendarSlice = createSlice({
     filterEvents: (state, action) => {
       state.calendarEvents = action.payload;
     },
+
     // getCalendarEvents: (state, action) => {
     //   state.calendarEvents = getNewData(events);
     // },
@@ -69,6 +83,7 @@ const calendarSlice = createSlice({
       .addCase(getCalendarEvents.fulfilled, (state, action) => {
         state.isLoading = false;
         state.calendarEvents = action.payload;
+        state.submitted = true;
       })
       .addCase(getCalendarEvents.rejected, (state, action) => {
         state.isLoading = false;
@@ -84,6 +99,7 @@ export const {
   handleEvents,
   filterEvents,
   // getCalendarEvents,
+  isSubmitted,
 } = calendarSlice.actions;
 
 export default calendarSlice.reducer;
