@@ -26,7 +26,9 @@ const SearchForm = () => {
   const { buttonDisabled } = useSelector((store) => store.sidebar);
   const { submitted } = useSelector((store) => store.calendar);
   const { searchValue } = useSelector((store) => store.searchBarFilter);
+  console.log(searchValue);
   const [value, setValue] = useState(searchValue);
+  console.log(value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -64,6 +66,10 @@ const SearchForm = () => {
     submitted,
   ]);
 
+  useEffect(() => {
+    setValue(searchValue); // Synchronize value state with searchValue from Redux
+  }, [searchValue]);
+
   // const handleChange = useMemo(() => {
   //   let timeoutId;
   //   return (e) => {
@@ -77,8 +83,6 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
-    sdfsdf;
 
     dispatch(handleSearchBarChange(value));
     dispatch(isSubmitted(true));

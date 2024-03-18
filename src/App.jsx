@@ -41,6 +41,8 @@ function App() {
     // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
     // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
     // }
+
+    dispatch(handleCurrentMonth());
     dispatch(getCalendarEvents());
   }, []);
 

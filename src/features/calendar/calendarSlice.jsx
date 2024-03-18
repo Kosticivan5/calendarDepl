@@ -41,7 +41,7 @@ export const getCalendarEvents = createAsyncThunk(
 
 const initialState = {
   calendarEvents: [],
-  monthIndex: dayjs().month(),
+  monthIndex: parseInt(localStorage.getItem("storedMonth")) || dayjs().month(),
   currentMonth: getMonth(),
   calendarDays: "",
   fullEvents: [],
@@ -60,9 +60,11 @@ const calendarSlice = createSlice({
     // ==
     prevMonth: (state, action) => {
       state.monthIndex = state.monthIndex - 1;
+      localStorage.setItem("storedMonth", state.monthIndex);
     },
     nextMonth: (state, action) => {
       state.monthIndex = state.monthIndex + 1;
+      localStorage.setItem("storedMonth", state.monthIndex);
     },
     handleCurrentMonth: (state, action) => {
       state.currentMonth = getMonth(state.monthIndex);
