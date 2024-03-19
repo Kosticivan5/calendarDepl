@@ -1,24 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { nanoid } from "nanoid";
 
-const URL = "https://jsonplaceholder.typicode.com/todos/";
+// const URL = "https://jsonplaceholder.typicode.com/todos/";
+const URL =
+  "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6675296127857605162&";
 
 // cancel registration
 
 export const cancelRegistration = createAsyncThunk(
   "eventInfo/cancelRegistration",
-  async (id, thunkAPI) => {
+  async ({ id, userId }, thunkAPI) => {
     try {
-      // Fetching current data first
-      const currentDataResponse = await axios.get(`${URL}${id}`);
-
-      // Extracting the current value of 'completed'
-      const completed = currentDataResponse.data.completed;
-
       const response = await axios.patch(
-        `${URL}${id}`,
-        { completed: !completed },
+        `${URL}event_id=${id}&user_id=${userId}&method=unreg&_=${nanoid()}`,
+        { registred: 0 },
         {
           headers: {
             "Content-Type": "application/json",
@@ -37,17 +34,11 @@ export const cancelRegistration = createAsyncThunk(
 // add registration
 export const addRegistration = createAsyncThunk(
   "eventInfo/addRegistration",
-  async (id, thunkAPI) => {
+  async ({ id, userId }, thunkAPI) => {
     try {
-      // Fetching current data first
-      const currentDataResponse = await axios.get(`${URL}${id}`);
-
-      // Extracting the current value of 'completed'
-      const completed = currentDataResponse.data.completed;
-
       const response = await axios.patch(
-        `${URL}${id}`,
-        { completed: !completed },
+        `${URL}event_id=${id}&user_id=${userId}&method=reg&is_out=0&_=${nanoid()}`,
+        { registred: 1 },
         {
           headers: {
             "Content-Type": "application/json",

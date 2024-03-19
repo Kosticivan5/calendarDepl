@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "npm run manipulate-files && npm run copy-files",
+    "manipulate-files": "move dist\\index.html dist\\index_tmp.html && type wt.html dist\\index_tmp.html >> dist\\index.html && del dist\\index_tmp.html && sed -i \"s/%%CUR_USER_ID%%/<%=curUserID%>/\" dist\\index.html && move dist\\index_tmp.html dist\\index.html",
+    "copy-files": "xcopy /s /e \"C:\\Users\\kosti\\OneDrive\\Documents\\ROSproj\\calendarApp-0ba69c41b868e1750ec20beb4b71d99ca9f6def4\\dist\\*\" \"C:\\Users\\kosti\\OneDrive\\Documents\\ROSproj\\BUILDCALENDAR\"",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "db": "json-server db.json --routes routes.json"

@@ -67,7 +67,7 @@ export const getNewData = (data) => {
 
   data.map((info) => {
     const infoCopy = { ...info };
-    const { start_date, finish_date, name } = info;
+    const { start_date, finish_date, name, start_date_prev_month } = info;
 
     // getWeeksBetweenDates(dayjs(start_date), dayjs(finish_date));
 
@@ -89,8 +89,15 @@ export const getNewData = (data) => {
       let newFinishDate;
       let idCounter = 0;
       let multiMonthStartDay;
+      let startDate;
+      if (start_date_prev_month) {
+        startDate = dayjs.tz(finish_date).startOf("month");
+      } else {
+        startDate = start_date;
+      }
+
       let amountOfWeeks = getWeeksBetweenDates(
-        dayjs.tz(start_date),
+        dayjs.tz(startDate),
         dayjs.tz(finish_date)
       );
       // calculate how many end of month dates are not on fri,sut,sun
@@ -103,37 +110,76 @@ export const getNewData = (data) => {
       const endOfMonthOriginIncluded = dayjs
         .tz(endOfMonthOrigin)
         .isBetween(start_date, finish_date);
-      if (endOfMonthOriginIncluded) {
-        amountOfWeeks =
-          amountOfWeeks + endOfMonthNonWeekendDays(start_date, finish_date);
+      // if (endOfMonthOriginIncluded) {
+      //   amountOfWeeks =
+      //     amountOfWeeks + endOfMonthNonWeekendDays(start_date, finish_date);
+      // }
+
+      console.log(amountOfWeeks);
+
+      if (endOfMonthOriginIncluded && !start_date_prev_month) {
+        amountOfWeeks = getWeeksBetweenDates(
+          dayjs.tz(start_date),
+          dayjs.tz(endOfMonthOrigin)
+        );
+      }
+      if (amountOfWeeks === 0) {
+        amountOfWeeks = 1;
       }
 
       // loop that determines to how many peaces we split the event
-      for (let i = 0; i < amountOfWeeks; i++) {
+      for (let i = 0; i <= amountOfWeeks; i++) {
         // if it's the first slice, it gets property of 1
 
         isMiddle = 1;
 
         if (i === 0) {
-          newStartDate = dayjs.tz(start_date); // Clone added here
+          newStartDate = dayjs.tz(startDate); // Clone added here
           isFirst = 1;
           // isLast = 0;
           isMiddle = 0;
         } else {
           isFirst = 0;
         }
+        if (
+          start_date_prev_month &&
+          dayjs.tz(startDate).week() !== dayjs.tz(finish_date).week()
+        ) {
+          isMiddle = 1;
+          isLast = 0;
+          isFirst = 0;
+        }
+
         // if it's the last slice, it gets property of 1 as last
-        if (i === amountOfWeeks - 1) {
+        if (i === amountOfWeeks) {
           isLast = 1;
           // isFirst = 0;
           isMiddle = 0;
         } else {
           isLast = 0;
         }
-        if (multiMonthStartDay) {
-          newStartDate = multiMonthStartDay; // Clone added here
+
+        if (
+          start_date_prev_month &&
+          dayjs.tz(startDate).week() === dayjs.tz(finish_date).week()
+        ) {
+          isMiddle = 0;
+          isLast = 1;
+          isFirst = 0;
         }
-        multiMonthStartDay = null;
+
+        // if (i === amountOfWeeks - 1 && i !== 0) {
+        //   isLast = 1;
+        //   // isFirst = 0;
+        //   isMiddle = 0;
+        // } else {
+        //   isLast = 0;
+        // }
+
+        // if (multiMonthStartDay) {
+        //   newStartDate = multiMonthStartDay; // Clone added here
+        // }
+        // multiMonthStartDay = null;
         // the start of the event
         let eventStart = newStartDate.day();
 
@@ -162,13 +208,16 @@ export const getNewData = (data) => {
 
         if (endOfMonthIncluded && newStartDate.week() === endOfMonth.week()) {
           addDays = endOfMonth.diff(newStartDate, "day");
-          multiMonthStartDay = endOfMonth.add(1, "day"); // Clone added here
-          if (multiMonthStartDay.day() === 6) {
-            multiMonthStartDay = multiMonthStartDay.add(2, "day");
-          }
-          if (multiMonthStartDay.day() === 0) {
-            multiMonthStartDay = multiMonthStartDay.add(1, "day");
-          }
+          // if (addDays === 0) {
+          //   addDays = 1;
+          // }
+          // multiMonthStartDay = endOfMonth.add(1, "day"); // Clone added here
+          // if (multiMonthStartDay.day() === 6) {
+          //   multiMonthStartDay = multiMonthStartDay.add(2, "day");
+          // }
+          // if (multiMonthStartDay.day() === 0) {
+          //   multiMonthStartDay = multiMonthStartDay.add(1, "day");
+          // }
         }
         // =======
 
@@ -184,7 +233,7 @@ export const getNewData = (data) => {
         let newEvent = {
           // ============
           ...infoCopy,
-          pathId: info.id,
+          path_id: info.id,
           id: `${info.id}mw${idCounter}`,
           start_date: newStartDate.format(),
           finish_date: newFinishDate,

@@ -26,9 +26,9 @@ const SearchForm = () => {
   const { buttonDisabled } = useSelector((store) => store.sidebar);
   const { submitted } = useSelector((store) => store.calendar);
   const { searchValue } = useSelector((store) => store.searchBarFilter);
-  console.log(searchValue);
+
   const [value, setValue] = useState(searchValue);
-  console.log(value);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

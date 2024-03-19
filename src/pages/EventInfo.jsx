@@ -154,7 +154,14 @@ const EventInfo = () => {
                 {ev?.registred ? (
                   <button
                     disabled={isRegistrationLoading}
-                    onClick={() => dispatch(cancelRegistration("1"))}
+                    onClick={() =>
+                      dispatch(
+                        cancelRegistration({
+                          id: ev.path_id || ev.id,
+                          userId: window.userId,
+                        })
+                      )
+                    }
                   >
                     {isRegistrationLoading ? (
                       <span className="loading-spinner"></span>
@@ -165,7 +172,14 @@ const EventInfo = () => {
                 ) : (
                   <button
                     disabled={isRegistrationLoading}
-                    onClick={() => dispatch(addRegistration("2"))}
+                    onClick={() =>
+                      dispatch(
+                        addRegistration({
+                          id: ev.path_id || ev.id,
+                          userId: window.userId,
+                        })
+                      )
+                    }
                   >
                     {isRegistrationLoading ? (
                       <span className="loading-spinner"></span>

@@ -8,7 +8,13 @@ const Modal = () => {
   const dispatch = useDispatch();
 
   return (
-    <div onClick={() => dispatch(closeModal())} className="modal">
+    <div
+      onClick={() => {
+        dispatch(closeModal());
+        window.location.reload();
+      }}
+      className="modal"
+    >
       <div className="check">
         <button>
           <IoCloseCircleOutline />
