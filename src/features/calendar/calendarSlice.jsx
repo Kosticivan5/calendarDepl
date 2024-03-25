@@ -41,7 +41,7 @@ export const getCalendarEvents = createAsyncThunk(
 
 const initialState = {
   calendarEvents: [],
-  monthIndex: parseInt(localStorage.getItem("storedMonth")) || dayjs().month(),
+  monthIndex: dayjs().month(),
   currentMonth: getMonth(),
   calendarDays: "",
   fullEvents: [],
@@ -53,6 +53,9 @@ const calendarSlice = createSlice({
   name: "calendar",
   initialState,
   reducers: {
+    updateMonthIndex: (state, action) => {
+      state.monthIndex = action.payload;
+    },
     // ==
     isSubmitted: (state, action) => {
       state.submitted = action.payload;
@@ -60,11 +63,9 @@ const calendarSlice = createSlice({
     // ==
     prevMonth: (state, action) => {
       state.monthIndex = state.monthIndex - 1;
-      localStorage.setItem("storedMonth", state.monthIndex);
     },
     nextMonth: (state, action) => {
       state.monthIndex = state.monthIndex + 1;
-      localStorage.setItem("storedMonth", state.monthIndex);
     },
     handleCurrentMonth: (state, action) => {
       state.currentMonth = getMonth(state.monthIndex);
@@ -102,6 +103,7 @@ export const {
   filterEvents,
   // getCalendarEvents,
   isSubmitted,
+  updateMonthIndex,
 } = calendarSlice.actions;
 
 export default calendarSlice.reducer;

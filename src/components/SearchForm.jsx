@@ -31,6 +31,7 @@ const SearchForm = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   let conditions = {};
 
@@ -48,7 +49,8 @@ const SearchForm = () => {
     fri_leaders,
     expert_learning,
     cifrovaya_gramotmotnost,
-    financial_literacy
+    financial_literacy,
+    location
   );
 
   useEffect(() => {

@@ -25,23 +25,67 @@ import { isSubmitted } from "./features/calendar/calendarSlice";
 import ErrorPage from "./components/ErrorPage";
 import Redirect from "./Redirect";
 import dayjs from "dayjs";
+import { updateMonthIndex } from "./features/calendar/calendarSlice";
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <SharedLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Redirect />,
+      },
+      {
+        path: `calendarDKO`,
+        element: <CalendarDKO />,
+        children: [{ path: "event-info/:id", element: <EventInfo /> }],
+      },
+      {
+        path: "CalendarCORP",
+        element: <CalendarCORP />,
+      },
+      {
+        path: "CalendarRETAIL",
+        element: <CalendarRETAIL />,
+      },
+      {
+        path: "CalendarDRPZ",
+        element: <CalendarDRPZ />,
+      },
+    ],
+  },
+]);
 
 function App() {
   const dispatch = useDispatch();
 
   const history = createHashHistory();
   const location = history.location;
+  const urlSearchParams = new URLSearchParams(location.search);
+  let monthQueryParam = urlSearchParams.get("monthIndex");
+
   // const pathname = location.pathname;
   // const search = location.search;
   // const hash = location.hash;
 
-  // const { calendarEvents } = useSelector((store) => store.calendar);
+  // const { monthIndex } = useSelector((store) => store.calendar);
 
   useEffect(() => {
     // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
     // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
     // }
 
+    if (
+      monthQueryParam !== null &&
+      monthQueryParam !== undefined &&
+      monthQueryParam !== ""
+    ) {
+      dispatch(updateMonthIndex(monthQueryParam));
+    } else {
+      dispatch(updateMonthIndex(dayjs().month()));
+    }
     dispatch(handleCurrentMonth());
     dispatch(getCalendarEvents());
   }, []);
@@ -66,37 +110,6 @@ function App() {
   //     </div>
   //   );
   // }
-
-  const router = createHashRouter([
-    {
-      path: "/",
-      element: <SharedLayout />,
-      errorElement: <ErrorPage />,
-      children: [
-        {
-          index: true,
-          element: <Redirect />,
-        },
-        {
-          path: `calendarDKO`,
-          element: <CalendarDKO />,
-          children: [{ path: "event-info/:id", element: <EventInfo /> }],
-        },
-        {
-          path: "CalendarCORP",
-          element: <CalendarCORP />,
-        },
-        {
-          path: "CalendarRETAIL",
-          element: <CalendarRETAIL />,
-        },
-        {
-          path: "CalendarDRPZ",
-          element: <CalendarDRPZ />,
-        },
-      ],
-    },
-  ]);
 
   return (
     <RouterProvider router={router} />

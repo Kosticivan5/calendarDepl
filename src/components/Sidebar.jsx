@@ -1,7 +1,7 @@
 import FormatDropdown from "./FormatDropdown";
 import TypesDropdown from "./TypesDropdown";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   toggleCheckbox,
@@ -21,6 +21,7 @@ import SidebarButtonControl from "./ui/SidebarButtonControl";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     registred,
@@ -52,7 +53,8 @@ const Sidebar = () => {
     fri_leaders,
     expert_learning,
     cifrovaya_gramotmotnost,
-    financial_literacy
+    financial_literacy,
+    location
   );
 
   useEffect(() => {

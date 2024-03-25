@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { filterEvents } from "../features/calendar/calendarSlice";
 import { useState, useEffect, useCallback } from "react";
 import { store } from "../store";
+import { updateMonthIndex } from "../features/calendar/calendarSlice";
+import dayjs from "dayjs";
 
 const useHandleFilteredEvents = (
   navigate,
@@ -18,7 +20,8 @@ const useHandleFilteredEvents = (
   fri_leaders,
   expert_learning,
   cifrovaya_gramotmotnost,
-  financial_literacy
+  financial_literacy,
+  location
 ) => {
   // const { filteredEvents } = useSelector((store) => store.searchBarFilter);
   const { calendarEvents } = useSelector((store) => store.calendar);
@@ -26,13 +29,40 @@ const useHandleFilteredEvents = (
   const { searchValue } = useSelector((store) => store.searchBarFilter);
   const { formatValue } = useSelector((store) => store.formatDropdown);
   const { typeValue } = useSelector((store) => store.typesDropdown);
+  const { monthIndex } = useSelector((store) => store.calendar);
 
   const filteredLogic = () => {
     // const urlSearchParams = new URLSearchParams(location.search);
     // const queryParams = Object.fromEntries(urlSearchParams.entries());
 
     if (submitted) {
+      const urlSearchParams = new URLSearchParams(location.search);
+      let monthQueryParam = urlSearchParams.get("monthIndex");
+
+      if (
+        monthQueryParam !== null &&
+        monthQueryParam !== undefined &&
+        monthQueryParam !== ""
+      ) {
+        const monthIndex = parseInt(monthQueryParam);
+        dispatch(updateMonthIndex(monthIndex));
+        urlSearchParams.set("monthIndex", monthIndex.toString());
+        navigate({ search: urlSearchParams.toString() });
+        conditions.monthIndex = monthIndex;
+      } else {
+        monthQueryParam = dayjs().month();
+        const currentMonthIndex = dayjs().month();
+        urlSearchParams.set("monthIndex", currentMonthIndex.toString());
+        navigate({ search: urlSearchParams.toString() });
+        dispatch(updateMonthIndex(currentMonthIndex));
+        conditions.monthIndex = currentMonthIndex;
+      }
+
+      // const queryStringMonth = urlSearchParams.toString();
+
+      // navigate({ search: queryStringMonth });
       conditions = {
+        ...conditions,
         ...(registred === 1 ? { registred: 1 } : undefined),
         ...(for_type === 1 ? { for_type: "boss" } : undefined),
         ...(starting === 1 ? { starting: 1 } : undefined),
@@ -57,6 +87,10 @@ const useHandleFilteredEvents = (
           (value) => value === undefined
         );
 
+        // if (evt.monthIndex !== conditions.monthIndex) {
+        //   return { ...evt, isHidden: false }; // Exclude filtering based on monthIndex
+        // }
+
         if (anyValueUndefined) {
           return { ...evt, isHidden: false };
         }
@@ -68,6 +102,9 @@ const useHandleFilteredEvents = (
             }
             if (key === "for_type") {
               return evt[key].indexOf("boss]") !== -1;
+            }
+            if (key === "monthIndex") {
+              return true;
             }
 
             return evt[key] === conditions[key];

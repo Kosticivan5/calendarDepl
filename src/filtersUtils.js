@@ -3,6 +3,8 @@ import { initialDirectionRender } from "./features/typesDropdown/typesDropdownSl
 import { initialFormatRender } from "./features/formatDropdown/formatDropdownSlice";
 import { handleSearchBarChange } from "./features/Searchbar/searchbarSlice";
 import { useLocation } from "react-router-dom";
+import { updateMonthIndex } from "./features/calendar/calendarSlice";
+import dayjs from "dayjs";
 
 export const updateFiltersFromUrl = (dispatch, location) => {
   const urlParams = new URLSearchParams(location.search);
@@ -19,15 +21,32 @@ export const updateFiltersFromUrl = (dispatch, location) => {
     type: initialFormatRender,
     direction: initialDirectionRender,
     name: handleSearchBarChange,
+    monthIndex: updateMonthIndex,
   };
 
   let formatValue;
   let directionValue;
+  let monthIndexValue;
 
   urlParams.forEach((value, key) => {
     const action = paramActionMap[key];
-    console.log(action);
     // // type(direction) select update
+
+    if (!action) {
+      console.warn(`No action found for key '${key}'`);
+      return;
+    }
+
+    console.log(key, value);
+
+    if (key === "monthIndex") {
+      if (value) {
+        monthIndexValue = parseInt(value, 10);
+      } else {
+        monthIndexValue = dayjs().month();
+      }
+      dispatch(action(monthIndexValue));
+    }
     if (key === "direction") {
       if (value === "personaleffectivness") {
         directionValue = "Персональная эффективность";
@@ -66,6 +85,7 @@ export const updateFiltersFromUrl = (dispatch, location) => {
     }
     if (key === "name") return;
     // checkboxes update
+
     dispatch(action(key));
   });
 };
