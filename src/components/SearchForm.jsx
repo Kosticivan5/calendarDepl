@@ -8,7 +8,6 @@ import { useEffect, useMemo, useState } from "react";
 import { GrClose } from "react-icons/gr";
 import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { useNavigate, useLocation } from "react-router-dom";
-// import { isSubmitted } from "../features/sidebar/sidebarSlice";
 import { isSubmitted } from "../features/calendar/calendarSlice";
 
 const SearchForm = () => {
@@ -71,17 +70,6 @@ const SearchForm = () => {
   useEffect(() => {
     setValue(searchValue); // Synchronize value state with searchValue from Redux
   }, [searchValue]);
-
-  // const handleChange = useMemo(() => {
-  //   let timeoutId;
-  //   return (e) => {
-  //     clearTimeout(timeoutId);
-  //     setValue(e.target.value);
-  //     timeoutId = setTimeout(() => {
-  //       dispatch(handleSearchBarChange(e.target.value));
-  //     }, 100);
-  //   };
-  // }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

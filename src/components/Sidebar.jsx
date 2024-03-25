@@ -9,7 +9,6 @@ import {
 } from "../features/checkboxes/checkboxesSlice";
 
 import { useEffect } from "react";
-// import { isSubmitted } from "../features/sidebar/sidebarSlice";
 import { isSubmitted } from "../features/calendar/calendarSlice";
 import useHandleFilteredEvents from "../hooks/HandleFilteredEvents";
 import { resetType } from "../features/typesDropdown/typesDropdownSlice";

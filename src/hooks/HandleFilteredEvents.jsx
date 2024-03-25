@@ -1,8 +1,5 @@
-import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { filterEvents } from "../features/calendar/calendarSlice";
-import { useState, useEffect, useCallback } from "react";
-import { store } from "../store";
 import { updateMonthIndex } from "../features/calendar/calendarSlice";
 import dayjs from "dayjs";
 
@@ -23,7 +20,6 @@ const useHandleFilteredEvents = (
   financial_literacy,
   location
 ) => {
-  // const { filteredEvents } = useSelector((store) => store.searchBarFilter);
   const { calendarEvents } = useSelector((store) => store.calendar);
 
   const { searchValue } = useSelector((store) => store.searchBarFilter);
@@ -32,9 +28,6 @@ const useHandleFilteredEvents = (
   const { monthIndex } = useSelector((store) => store.calendar);
 
   const filteredLogic = () => {
-    // const urlSearchParams = new URLSearchParams(location.search);
-    // const queryParams = Object.fromEntries(urlSearchParams.entries());
-
     if (submitted) {
       const urlSearchParams = new URLSearchParams(location.search);
       let monthQueryParam = urlSearchParams.get("monthIndex");
@@ -58,9 +51,6 @@ const useHandleFilteredEvents = (
         conditions.monthIndex = currentMonthIndex;
       }
 
-      // const queryStringMonth = urlSearchParams.toString();
-
-      // navigate({ search: queryStringMonth });
       conditions = {
         ...conditions,
         ...(registred === 1 ? { registred: 1 } : undefined),
@@ -86,10 +76,6 @@ const useHandleFilteredEvents = (
         const anyValueUndefined = Object.values(conditions).some(
           (value) => value === undefined
         );
-
-        // if (evt.monthIndex !== conditions.monthIndex) {
-        //   return { ...evt, isHidden: false }; // Exclude filtering based on monthIndex
-        // }
 
         if (anyValueUndefined) {
           return { ...evt, isHidden: false };

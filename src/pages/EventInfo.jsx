@@ -140,8 +140,8 @@ const EventInfo = () => {
                 <p>Преподаватель</p>
                 {<div dangerouslySetInnerHTML={{ __html: ev?.company }} />}
                 {/* <p>{ev.company} </p> */}
-                <p>Направление</p>
-                <p>Личная пятница</p>
+                {/* <p>Направление</p>
+                <p>Личная пятница</p> */}
                 <p dangerouslySetInnerHTML={{ __html: ev?.description }} />
               </div>
             </section>

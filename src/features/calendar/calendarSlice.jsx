@@ -5,8 +5,11 @@ import { getNewData } from "../../utils";
 import { getMonth } from "../../getMonth";
 import { events } from "../../data";
 
+// const urlTest =
+//   "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6673451655755009275";
+
 const url =
-  "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6673451655755009275";
+  "https://webtutor.rosbank.rus.socgen/custom_web_template.html?object_id=7009797198158191181";
 
 // const url = "http://localhost:3000/events";
 

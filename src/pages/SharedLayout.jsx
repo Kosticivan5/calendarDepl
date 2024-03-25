@@ -8,14 +8,6 @@ const SharedLayout = () => {
   const { isLoading } = useSelector((store) => store.calendar);
   const { isModalOpened } = useSelector((store) => store.eventInfo);
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loader-container show">
-  //       <span className="loader"></span>
-  //     </div>
-  //   );
-  // }
-
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {

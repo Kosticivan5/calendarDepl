@@ -4,8 +4,11 @@ import axios from "axios";
 import { nanoid } from "nanoid";
 
 // const URL = "https://jsonplaceholder.typicode.com/todos/";
+// const TestURL =
+//   "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6675296127857605162&";
+
 const URL =
-  "https://rsbt-astwebtut.trosbank.trus.tsocgen/custom_web_template.html?object_id=6675296127857605162&";
+  "https://webtutor.rosbank.rus.socgen/custom_web_template.html?object_id=6675296127857605162&";
 
 // cancel registration
 

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import {
   getCalendarEvents,
   handleCurrentMonth,
-  handleEvents,
 } from "./features/calendar/calendarSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -20,7 +19,6 @@ import SharedLayout from "./pages/SharedLayout";
 import EventInfo from "./pages/EventInfo";
 import { createHashHistory } from "history";
 import { updateFiltersFromUrl } from "./filtersUtils";
-// import { isSubmitted } from "./features/sidebar/sidebarSlice";
 import { isSubmitted } from "./features/calendar/calendarSlice";
 import ErrorPage from "./components/ErrorPage";
 import Redirect from "./Redirect";
@@ -66,17 +64,7 @@ function App() {
   const urlSearchParams = new URLSearchParams(location.search);
   let monthQueryParam = urlSearchParams.get("monthIndex");
 
-  // const pathname = location.pathname;
-  // const search = location.search;
-  // const hash = location.hash;
-
-  // const { monthIndex } = useSelector((store) => store.calendar);
-
   useEffect(() => {
-    // const dataAlreadyFetched = JSON.parse(localStorage.getItem("eventList"));
-    // if (!dataAlreadyFetched || dataAlreadyFetched.length < 1) {
-    // }
-
     if (
       monthQueryParam !== null &&
       monthQueryParam !== undefined &&
@@ -90,44 +78,12 @@ function App() {
     dispatch(getCalendarEvents());
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(handleCurrentMonth());
-  // }, [monthIndex]);
-
   useEffect(() => {
     updateFiltersFromUrl(dispatch, location);
     dispatch(isSubmitted(true));
   }, [location.search]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("eventList", JSON.stringify(calendarEvents));
-  // }, [location.search, calendarEvents]);
-
-  // if (isLoading) {
-  //   return (
-  //     <div className="loader-container">
-  //       <span className="loader"></span>
-  //     </div>
-  //   );
-  // }
-
-  return (
-    <RouterProvider router={router} />
-
-    // <HashRouter>
-    //   <Routes>
-    //     <Route path="/" element={<SharedLayout />}>
-    //       <Route path="calendarDKO" element={<CalendarDKO />}>
-    //         <Route path="event-info/:id" element={<EventInfo />} />
-    //       </Route>
-    //       <Route path="calendarCORP" element={<CalendarCORP />} />
-    //       <Route path="CalendarRETAIL" element={<CalendarRETAIL />} />
-    //       <Route path="CalendarDRPZ" element={<CalendarDRPZ />} />
-    //     </Route>
-    //     <Route path="*" element={<div>404 Erorr</div>} />
-    //   </Routes>
-    // </HashRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
